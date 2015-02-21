@@ -142,17 +142,8 @@ run_analysis<- function()
   colnames(dsQ5)[1] <- 'Activity'
   colnames(dsQ5)[2] <- 'Subject'
   
-  #we want activity, subject, variables
-  dsQ55<-dsQ5 %>% group_by(Activity, Subject) %>% summarise_each(funs(mean))
-  write.table(dsQ55, "tidy_dataset", row.name=FALSE)
-  dsQ55
+  #Average of each variable for each activity and each subject
+  dsQ5Average<-dsQ5 %>% group_by(Activity, Subject) %>% summarise_each(funs(mean))
+  dsQ5Average
   }
 
-dsQ<-run_analysis()
-dsQ55<-dsQ %>% group_by(Activity, Subject) %>% summarise_each(funs(mean))
-#library(dplyr)
-#dsQ %>% group_by(Activity, Subject) %>% summarise_each(funs(mean))
-#write.table(dsQ, "tidy_dataset", row.name=FALSE)
-
-#library(knitr)
-#knit("run_analysis.Rmd")
