@@ -204,9 +204,9 @@ run_analysis<- function()
   colnames(dsQ5)[2] <- 'Subject'
   
   #we want activity, subject, variables
-  dsQ5 %>% group_by(Activity, Subject) %>% summarise_each(funs(mean))
-  write.table(dsQ5, "tidy_dataset", row.name=FALSE)
-  dsQ5
+  dsQ55<-dsQ5 %>% group_by(Activity, Subject) %>% summarise_each(funs(mean))
+  write.table(dsQ55, "tidy_dataset", row.name=FALSE)
+  dsQ55
 }
 ```
 
